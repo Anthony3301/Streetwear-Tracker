@@ -21,9 +21,13 @@ try:
 except:
     browser.quit()
 
-if EC.presence_of_element_located((By.CLASS_NAME,"BrowseSearchDescription__SearchConfirmation-sc-1mt8qyd-1 dcjzxm")):
-    print("Item Located")
-else:
-    print("No Results")
+try:
+    main = WebDriverWait(browser,30).until(
+        EC.presence_of_element_located((By.ID,"products-container"))
+    )
+    print("search complete")
+
+except:
+    browser.quit()
 
 browser.quit()
