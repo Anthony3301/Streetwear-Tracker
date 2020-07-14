@@ -27,6 +27,14 @@ try:
     )
     print("search complete")
 
+    """To locate the count
+    
+    The value of the actual search results count is under
+    data-testid = search-result-count
+    the text is the value itself
+
+    """
+
 except:
     browser.quit()
 
