@@ -22,20 +22,18 @@ except:
     browser.quit()
 
 try:
+    #waits for the product container to be loaded
     main = WebDriverWait(browser,30).until(
         EC.presence_of_element_located((By.ID,"products-container"))
     )
-    print("search complete")
 
-    """To locate the count
+    #checks if the number of results are present
+    isResults = len(browser.find_elements_by_xpath("//*[@id='products-container']/div[1]/div/b")) > 0
+    print(isResults)
+
+    result = browser.find_element_by_xpath("//*[@id='products-container']/div[1]/div/b").text
+    print(result)
+
     
-    The value of the actual search results count is under
-    data-testid = search-result-count
-    the text is the value itself
-
-    """
-
 except:
     browser.quit()
-
-browser.quit()
